@@ -39,23 +39,31 @@ RSpec.describe 'Main' do
 
         it 'outputs an error message for file not found' do
           allow(File).to receive(:readlines).with("input/#{input_filename}", chomp: true).and_raise(Errno::ENOENT)
-  
+
           RSpec::Mocks.with_temporary_scope do
             ARGV[0] = input_filename
-            expect { load('../main.rb') }.to output("Input file not found: invalid_input.txt\n").to_stdout.and raise_error(SystemExit, /exit/)
+            expect do
+              load('../main.rb')
+            end.to output("Input file not found: invalid_input.txt\n").to_stdout.and raise_error(SystemExit,
+                                                                                                 /exit/)
           end
         end
       end
 
       context 'when match_data is nil' do
         let(:input_lines_with_error) { ['input line that doesnt match'] }
-        
+
         it 'outputs an error message for invalid input line' do
-          allow(File).to receive(:readlines).with("input/#{input_filename}", chomp: true).and_return(input_lines_with_error)
-  
+          allow(File).to receive(:readlines).with("input/#{input_filename}",
+                                                  chomp: true).and_return(input_lines_with_error)
+
           RSpec::Mocks.with_temporary_scope do
             ARGV[0] = input_filename
-            expect { load('../main.rb') }.to output("Invalid input line: input line that doesnt match\n").to_stdout.and raise_error(SystemExit, /exit/)
+            expect do
+              load('../main.rb')
+            end.to output("Invalid input line: input line that doesnt match\n").to_stdout.and raise_error(
+              SystemExit, /exit/
+            )
           end
         end
       end

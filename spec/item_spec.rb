@@ -3,7 +3,7 @@ require_relative '../item'
 RSpec.describe Item do
   describe '#initialize' do
     context 'when setting the items attributes' do
-      let(:item) { Item.new(name: "perfume", price: 27.99, imported: true, container_type: "bottle") }
+      let(:item) { Item.new(name: 'perfume', price: 27.99, imported: true, container_type: 'bottle') }
 
       it 'sets the attributes correctly' do
         expect(item.name).to eq('perfume')
@@ -12,12 +12,11 @@ RSpec.describe Item do
         expect(item.container_type).to eq('bottle')
       end
     end
-    
 
     context 'when calculating sales tax and price with tax' do
       context 'when the item is exempted from tax' do
         let(:item) { Item.new(name: name, price: 12.99, container_type: container_type) }
-        
+
         context 'when belongs to the book category' do
           let(:name) { 'book' }
           let(:container_type) { nil }
@@ -50,7 +49,7 @@ RSpec.describe Item do
       end
 
       context 'when the item is imported' do
-        let(:item) { Item.new(name: "perfume", price: 27.99, imported: true, container_type: "bottle") }
+        let(:item) { Item.new(name: 'perfume', price: 27.99, imported: true, container_type: 'bottle') }
 
         it 'calculates the correct sales tax and price with tax' do
           expect(item.sales_tax).to eq(4.20)
@@ -58,7 +57,7 @@ RSpec.describe Item do
         end
       end
       context 'when the item is not imported' do
-        let(:item) { Item.new(name: "perfume", price: 27.99, container_type: "bottle") }
+        let(:item) { Item.new(name: 'perfume', price: 27.99, container_type: 'bottle') }
 
         it 'calculates the correct sales tax and price with tax' do
           expect(item.sales_tax).to eq(2.80)
@@ -98,7 +97,7 @@ RSpec.describe Item do
 
       context 'when the item has a container type' do
         let(:item) { Item.new(name: 'perfume', price: 49.99, imported: true, container_type: 'bottle') }
-        
+
         it 'returns the correct string representation of the item' do
           expect(item.to_s).to eq('imported bottle of perfume')
         end
