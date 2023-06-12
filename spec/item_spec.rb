@@ -24,21 +24,21 @@ RSpec.describe Item do
           end
         end
 
-        context 'when belongs to the book category' do
+        context 'when item belongs to the book category' do
           let(:name) { 'book' }
           let(:container_type) { nil }
 
           include_examples 'item with zero sales tax'
         end
 
-        context 'when belongs to the food category' do
+        context 'when item belongs to the food category' do
           let(:name) { 'chocolate' }
           let(:container_type) { 'box' }
 
           include_examples 'item with zero sales tax'
         end
 
-        context 'when belongs to the medical products category' do
+        context 'when item belongs to the medical products category' do
           let(:name) { 'headache pills' }
           let(:container_type) { 'packet' }
 
