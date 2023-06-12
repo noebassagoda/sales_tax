@@ -21,9 +21,9 @@ To run the application, follow the steps below:
    cd sales-tax
    ```
 
-3. Run the application with the provided input examples:
+3. Run the application with the provided input examples, for example to run the first input enter the following command:
      ```
-     ruby main.rb input/<filename>.txt
+     ruby main.rb input_1.txt
      ```
 
 ## Assumptions
