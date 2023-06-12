@@ -44,8 +44,9 @@ RSpec.describe 'Main' do
             ARGV[0] = input_filename
             expect do
               load('../main.rb')
-            end.to output("Input file not found: invalid_input.txt\n").to_stdout.and raise_error(SystemExit,
-                                                                                                 /exit/)
+            end.to output("Input file not found: invalid_input.txt\n").to_stdout.and raise_error(
+              SystemExit, /exit/
+            )
           end
         end
       end
