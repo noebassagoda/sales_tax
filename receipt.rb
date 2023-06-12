@@ -3,7 +3,7 @@ require_relative 'line_item'
 
 class Receipt
   attr_reader :line_items, :total_sales_tax, :total_price
-  
+
   def initialize
     @line_items = []
     @total_sales_tax = 0.0
@@ -19,12 +19,12 @@ class Receipt
   end
 
   def to_s
-    return "No items in the receipt" if @line_items.empty?
+    return 'No items in the receipt' if @line_items.empty?
 
-    receipt_details = @line_items.map { |line_item| line_item.to_s }.join("\n")
-    receipt_details += "\nSales Taxes: #{sprintf('%.2f', total_sales_tax)}"
-    receipt_details += "\nTotal: #{sprintf('%.2f', total_price)}"
-  
+    receipt_details = @line_items.map(&:to_s).join("\n")
+    receipt_details += "\nSales Taxes: #{format('%.2f', total_sales_tax)}"
+    receipt_details += "\nTotal: #{format('%.2f', total_price)}"
+
     receipt_details
   end
 end

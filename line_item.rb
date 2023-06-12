@@ -11,6 +11,6 @@ class LineItem
   end
 
   def to_s
-    "#{@quantity} #{@item.to_s}: #{sprintf('%.2f', @total_amount)}"
+    "#{@quantity} #{@item.to_s}: #{format('%.2f', @total_amount)}"
   end
 end

@@ -28,14 +28,13 @@ begin
     price = match_data[4].to_f
 
     item = Item.new(name: name, price: price, imported: imported, container_type: container_type)
-  
+
     receipt.create_line_item(item, quantity)
   end
 
   puts receipt.to_s
-
-rescue Errno::ENOENT => e
+rescue Errno::ENOENT
   # Handle case when the input file does not exist
   puts "Input file not found: #{input_filename}"
-  exit(1) 
+  exit(1)
 end
