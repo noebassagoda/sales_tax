@@ -31,7 +31,7 @@ To run the application, follow the steps below:
 - The input format for items is as follows: `<quantity> [imported] [container type] <name> at <price>`. For example, `2 book at 12.49` or `1 imported bottle of perfume at 27.99`.
 - If the input does not match the specified format, an error message will be printed, and the program will exit.
 - If the provided input filename does not match any existing file, an error message will be printed, and the program will exit.
-- If the input file doesn't include any item, the application will display the following message: "No items in the receipt." This is to indicate that the receipt is empty and no calculations or further processing will be performed.
+- If the input file doesn't include any item (e.g. the file is empty), the application will display the following message: "No items in the receipt." This is to indicate that the receipt is empty and no calculations or further processing will be performed.
 - The rounding rules for sales tax are as follows: for a tax rate of n%, a shelf price of p contains `(np/100 rounded up to the nearest 0.05)` amount of sales tax.
 
 ## Output
