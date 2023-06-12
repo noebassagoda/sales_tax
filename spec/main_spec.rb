@@ -28,7 +28,9 @@ RSpec.describe 'Main' do
 
         RSpec::Mocks.with_temporary_scope do
           ARGV[0] = input_filename
-          expect { load('../main.rb') }.to output(expected_output).to_stdout
+          expect do
+            load('../main.rb')
+          end.to output(expected_output).to_stdout
         end
       end
     end
