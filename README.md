@@ -23,7 +23,7 @@ To run the application, follow the steps below:
 
 3. Run the application with the provided input examples:
      ```
-     ruby sales_tax_.rb input/<filename>.txt
+     ruby main.rb input/<filename>.txt
      ```
 
 ## Assumptions
