@@ -17,34 +17,32 @@ RSpec.describe Item do
       context 'when the item is exempted from tax' do
         let(:item) { Item.new(name: name, price: 12.99, container_type: container_type) }
 
-        context 'when belongs to the book category' do
-          let(:name) { 'book' }
-          let(:container_type) { nil }
-
+        shared_examples 'item with zero sales tax' do
           it 'sets sales tax to zero and price with tax is equal to price' do
             expect(item.sales_tax).to eq(0.0)
             expect(item.price_with_tax).to eq(12.99)
           end
+        end
+
+        context 'when belongs to the book category' do
+          let(:name) { 'book' }
+          let(:container_type) { nil }
+
+          include_examples 'item with zero sales tax'
         end
 
         context 'when belongs to the food category' do
           let(:name) { 'chocolate' }
           let(:container_type) { 'box' }
 
-          it 'sets sales tax to zero and price with tax is equal to price' do
-            expect(item.sales_tax).to eq(0.0)
-            expect(item.price_with_tax).to eq(12.99)
-          end
+          include_examples 'item with zero sales tax'
         end
 
         context 'when belongs to the medical products category' do
           let(:name) { 'headache pills' }
           let(:container_type) { 'packet' }
 
-          it 'sets sales tax to zero and price with tax is equal to price' do
-            expect(item.sales_tax).to eq(0.0)
-            expect(item.price_with_tax).to eq(12.99)
-          end
+          include_examples 'item with zero sales tax'
         end
       end
 
@@ -56,6 +54,7 @@ RSpec.describe Item do
           expect(item.price_with_tax).to eq(32.19)
         end
       end
+
       context 'when the item is not imported' do
         let(:item) { Item.new(name: 'perfume', price: 27.99, container_type: 'bottle') }
 
