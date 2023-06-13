@@ -51,7 +51,7 @@ RSpec.describe 'Main' do
         end
       end
 
-      context 'when match_data is nil' do
+      context 'when the input does not match the expected format' do
         let(:input_lines) { ['input line that doesnt match'] }
         let(:input_filename) { 'input.txt' }
 
