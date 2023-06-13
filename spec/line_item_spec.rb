@@ -5,7 +5,7 @@ RSpec.describe LineItem do
   let(:line_item) { LineItem.new(item, 2) }
 
   describe '#initialize' do
-    it 'sets the item and quantity attributes' do
+    it 'sets the attributes correctly' do
       expect(line_item.item).to eq(item)
       expect(line_item.quantity).to eq(2)
     end
