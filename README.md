@@ -44,14 +44,14 @@ The application will print out the receipt details for each shopping basket.
 ## Example
 ### Input 1:
 ```
-2 boxes of book at 12.49
+2 book at 12.49
 1 music CD at 14.99
 1 chocolate bar at 0.85
 ```
 
 Output 1:
 ```
-2 boxes of book: 24.98
+2 book: 24.98
 1 music CD: 16.49
 1 chocolate bar: 0.85
 Sales Taxes: 1.50
